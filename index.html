@@ -45,6 +45,8 @@ body{
   margin:auto;
   padding:40px 16px;
   text-align:center;
+  position:relative;
+  z-index:1;
 }
 
 /* PROFILE */
@@ -125,6 +127,7 @@ h1{
   font-size:22px;
   cursor:pointer;
   box-shadow:0 0 25px red;
+  z-index:2;
 }
 
 /* FOOTER */
@@ -134,6 +137,44 @@ h1{
   opacity:.7;
   font-family:'Roboto Mono', monospace;
   color:red;
+}
+
+/* MOBILE TAP TO PLAY OVERLAY */
+.tap-play-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Orbitron', sans-serif;
+  font-size:22px;
+  font-weight:bold;
+  color:red;
+  text-align:center;
+  cursor:pointer;
+  z-index:5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px){
+  .container{
+    padding: 25px 12px;
+  }
+  h1{
+    font-size: 28px;
+  }
+  .card{
+    font-size: 14px;
+  }
+  .link{
+    font-size: 14px;
+    padding: 12px;
+  }
+  .tap-play-overlay{
+    font-size:18px;
+    padding:20px;
+  }
 }
 </style>
 </head>
@@ -151,6 +192,11 @@ h1{
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<!-- MOBILE TAP TO PLAY -->
+<div id="tapOverlay" class="tap-play-overlay" style="display:none;">
+  TAP TO PLAY MUSIC 🔊
+</div>
 
 <div class="container">
 
@@ -189,17 +235,41 @@ h1{
 
 <script>
 const music = document.getElementById("bgMusic");
+const musicBtn = document.querySelector(".music-btn");
+const tapOverlay = document.getElementById("tapOverlay");
 let playing = false;
 
+// Try autoplay on desktop
+window.addEventListener('load', () => {
+  music.play().then(() => {
+    playing = true;
+    musicBtn.textContent = "🔊";
+  }).catch(() => {
+    // Autoplay blocked (usually mobile)
+    tapOverlay.style.display = "flex"; // show overlay
+  });
+});
+
+// Toggle music function
 function toggleMusic(){
   if(!playing){
     music.play();
     playing = true;
+    musicBtn.textContent = "🔊";
   }else{
     music.pause();
     playing = false;
+    musicBtn.textContent = "🎵";
   }
 }
+
+// Handle tap overlay for mobile
+tapOverlay.addEventListener('click', () => {
+  music.play();
+  playing = true;
+  musicBtn.textContent = "🔊";
+  tapOverlay.style.display = "none"; // remove overlay
+});
 </script>
 
 </body>
