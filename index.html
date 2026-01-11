@@ -30,7 +30,7 @@ video{
 .overlay{
   position:fixed;
   inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.9));
+  background:linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.85));
   z-index:-2;
 }
 
@@ -54,8 +54,8 @@ body{
   width:130px;
   height:130px;
   border-radius:50%;
-  border:3px solid #ff0000;
-  box-shadow:0 0 35px rgba(255,0,0,.8);
+  border:3px solid #1e90ff;
+  box-shadow:0 0 35px rgba(30,144,255,.8);
 }
 
 /* NAME */
@@ -63,32 +63,32 @@ h1{
   margin-top:18px;
   font-size:32px;
   font-family:'Orbitron', sans-serif;
-  color:#ff0000;
-  text-shadow:0 0 20px red;
+  color:#1e90ff;
+  text-shadow:0 0 20px #1e90ff;
 }
 
 /* TAGLINE */
 .tag{
   margin-top:6px;
   font-size:14px;
-  color:#ff4444;
+  color:#63b3ff;
   font-family:'Roboto Mono', monospace;
 }
 
 /* CARD */
 .card{
   margin-top:25px;
-  padding:25px;
-  background:rgba(0,0,0,.6);
+  padding:20px 25px;
+  background:rgba(0,0,50,.6);
   border-radius:18px;
-  backdrop-filter: blur(10px);
-  box-shadow:0 0 40px rgba(255,0,0,.6);
+  backdrop-filter: blur(12px);
+  box-shadow:0 0 40px rgba(30,144,255,.6);
   font-size:15px;
   line-height:2;
-  color:red;
+  color:#1e90ff;
   font-weight:bold;
-  text-shadow:0 0 10px red;
-  border:1px solid red;
+  text-shadow:0 0 10px #1e90ff;
+  border:1px solid #1e90ff;
 }
 
 /* LINKS */
@@ -97,10 +97,10 @@ h1{
   margin:14px 0;
   padding:15px;
   border-radius:14px;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,50,.7);
   color:white;
   text-decoration:none;
-  border:1px solid rgba(255,255,255,.15);
+  border:1px solid rgba(30,144,255,.2);
   font-family:'Orbitron', sans-serif;
   font-weight:600;
   font-size:16px;
@@ -108,9 +108,9 @@ h1{
 }
 
 .link:hover{
-  background:red;
+  background:#1e90ff;
   color:black;
-  box-shadow:0 0 25px red;
+  box-shadow:0 0 25px #1e90ff;
 }
 
 /* MUSIC BUTTON */
@@ -118,7 +118,7 @@ h1{
   position:fixed;
   bottom:20px;
   right:20px;
-  background:red;
+  background:#1e90ff;
   color:black;
   border:none;
   border-radius:50%;
@@ -126,7 +126,7 @@ h1{
   height:55px;
   font-size:22px;
   cursor:pointer;
-  box-shadow:0 0 25px red;
+  box-shadow:0 0 25px #1e90ff;
   z-index:2;
 }
 
@@ -136,7 +136,7 @@ h1{
   font-size:12px;
   opacity:.7;
   font-family:'Roboto Mono', monospace;
-  color:red;
+  color:#63b3ff;
 }
 
 /* MOBILE TAP TO PLAY OVERLAY */
@@ -150,7 +150,7 @@ h1{
   font-family:'Orbitron', sans-serif;
   font-size:22px;
   font-weight:bold;
-  color:red;
+  color:#1e90ff;
   text-align:center;
   cursor:pointer;
   z-index:5;
@@ -205,27 +205,34 @@ h1{
   </div>
 
   <h1>KEVIN TAAKE 🇰🇮</h1>
-  <div class="tag">FOUNDER • DIGITAL CREATOR</div>
+  <div class="tag"> WEBSITE DEVELOPER | CODE MASTER</div>
 
-  <!-- 🔴 RED BOLD DESCRIPTION -->
-  <div class="card">
-    AGE: 20 YEARS OLD <br><br>
-    SCHOOL: USP 👨‍🎓<br><br>
-    PLACE: KIRIBATI 🇰🇮 <br><br>
-    FOUNDER OF :
-    <a href="https://bekarakaranabutae-oss.github.io/KEVIN-WORLD-HACK/"
-       target="_blank"
-       style="color:red; font-weight:bold; text-decoration:none;">
-       KEVIN WORLD HACK
-    </a>
+  <!-- COLLAPSIBLE DESCRIPTION CARD -->
+  <div class="card" id="descCard">
+    <div id="descHeader" style="cursor:pointer; font-size:16px;">
+      <strong>ABOUT ME ⬇️</strong>
+    </div>
+    <div id="descContent" style="display:none; margin-top:15px; line-height:1.8;">
+      AGE: 20 YEARS OLD <br><br>
+      SCHOOL: USP 👨‍🎓<br><br>
+      PLACE: KIRIBATI 🇰🇮 <br><br>
+      FOUNDER OF :
+      <a href="https://bekarakaranabutae-oss.github.io/KEVIN-WORLD-HACK/"
+         target="_blank"
+         style="color:#1e90ff; font-weight:bold; text-decoration:none;">
+         KEVIN WORLD HACK
+      </a>
+    </div>
   </div>
 
+  <!-- SOCIAL LINKS -->
   <a class="link" href="https://www.instagram.com/kevinbarai" target="_blank">📸 Instagram</a>
   <a class="link" href="https://facebook.com/kevinbarai" target="_blank">👥 Facebook</a>
   <a class="link" href="https://t.me/kevintaake" target="_blank">💬 Telegram</a>
   <a class="link" href="https://github.com/bekarakaranabutae-oss" target="_blank">💻 GitHub</a>
   <a class="link" href="https://youtube.com/@kevintaakemataio" target="_blank">▶️ YouTube</a>
   <a class="link" href="https://bekarakaranabutae-oss.github.io/KEVIN-WORLD-HACK/" target="_blank">🌐 My Projects</a>
+  <a class="link" href="https://www.tiktok.com/@nabutae.com4?_r=1&_t=ZS-92x8Nkd3BZN" target="_blank">🎵 TikTok</a>
 
   <div class="footer">
     © 2026 Kevin Taake • Kiribati 🇰🇮
@@ -245,8 +252,7 @@ window.addEventListener('load', () => {
     playing = true;
     musicBtn.textContent = "🔊";
   }).catch(() => {
-    // Autoplay blocked (usually mobile)
-    tapOverlay.style.display = "flex"; // show overlay
+    tapOverlay.style.display = "flex"; // show overlay if blocked
   });
 });
 
@@ -269,6 +275,18 @@ tapOverlay.addEventListener('click', () => {
   playing = true;
   musicBtn.textContent = "🔊";
   tapOverlay.style.display = "none"; // remove overlay
+});
+
+// Collapsible description
+const descHeader = document.getElementById("descHeader");
+const descContent = document.getElementById("descContent");
+
+descHeader.addEventListener("click", () => {
+  if(descContent.style.display === "none"){
+    descContent.style.display = "block";
+  } else {
+    descContent.style.display = "none";
+  }
 });
 </script>
 
