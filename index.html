@@ -3,291 +3,413 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kevin Taake | Digital Identity</title>
-
-<!-- GOOGLE FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>GOD MODE | KEVIN TAAKE 🇰🇮</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins', sans-serif;
+body {
+    margin: 0;
+    color: #00ff00;
+    font-family: monospace;
+    overflow-x: hidden;
+
+    /* ✅ NEW BACKGROUND IMAGE ADDED */
+    background: url('https://raw.githubusercontent.com/bekarakaranabutae-oss/MY-PORTFOLIO/main/background.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
-/* VIDEO BACKGROUND */
-video{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-3;
+/* BACKGROUND VIDEO */
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
 }
 
 /* OVERLAY */
-.overlay{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.85));
-  z-index:-2;
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: -2;
 }
 
-body{
-  color:white;
-  min-height:100vh;
+/* MATRIX */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-/* CONTAINER */
-.container{
-  max-width:500px;
-  margin:auto;
-  padding:40px 16px;
-  text-align:center;
-  position:relative;
-  z-index:1;
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #00ff00;
 }
 
 /* PROFILE */
-.profile img{
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  border:3px solid #1e90ff;
-  box-shadow:0 0 35px rgba(30,144,255,.8);
+.profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
-/* NAME */
-h1{
-  margin-top:18px;
-  font-size:32px;
-  font-family:'Orbitron', sans-serif;
-  color:#1e90ff;
-  text-shadow:0 0 20px #1e90ff;
+/* GRID */
+.container {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-/* TAGLINE */
-.tag{
-  margin-top:6px;
-  font-size:14px;
-  color:#63b3ff;
-  font-family:'Roboto Mono', monospace;
+/* BOX */
+.box {
+    border: 1px solid #00ff00;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.5);
 }
 
-/* CARD */
-.card{
-  margin-top:25px;
-  padding:20px 25px;
-  background:rgba(0,0,50,.6);
-  border-radius:18px;
-  backdrop-filter: blur(12px);
-  box-shadow:0 0 40px rgba(30,144,255,.6);
-  font-size:15px;
-  line-height:2;
-  color:#1e90ff;
-  font-weight:bold;
-  text-shadow:0 0 10px #1e90ff;
-  border:1px solid #1e90ff;
+/* BUTTONS */
+button, select {
+    padding: 8px;
+    margin: 5px;
+    background: #00ff00;
+    border: none;
+    cursor: pointer;
 }
 
-/* LINKS */
-.link{
-  display:block;
-  margin:14px 0;
-  padding:15px;
-  border-radius:14px;
-  background:rgba(0,0,50,.7);
-  color:white;
-  text-decoration:none;
-  border:1px solid rgba(30,144,255,.2);
-  font-family:'Orbitron', sans-serif;
-  font-weight:600;
-  font-size:16px;
-  transition:.3s;
+/* INPUT */
+input {
+    padding: 10px;
+    width: 100%;
+    background: black;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    margin-top: 10px;
 }
 
-.link:hover{
-  background:#1e90ff;
-  color:black;
-  box-shadow:0 0 25px #1e90ff;
+/* IFRAME */
+iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
 }
 
-/* MUSIC BUTTON */
-.music-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#1e90ff;
-  color:black;
-  border:none;
-  border-radius:50%;
-  width:55px;
-  height:55px;
-  font-size:22px;
-  cursor:pointer;
-  box-shadow:0 0 25px #1e90ff;
-  z-index:2;
+/* STATUS */
+.status {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* EXTRA PANELS */
+.panel-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* LOG WINDOW */
+.log {
+    height: 120px;
+    overflow-y: auto;
+    border: 1px solid #00ff00;
+    padding: 10px;
+    background: black;
+}
+
+/* SETTINGS */
+.settings {
+    display: flex;
+    flex-direction: column;
 }
 
 /* FOOTER */
-.footer{
-  margin-top:35px;
-  font-size:12px;
-  opacity:.7;
-  font-family:'Roboto Mono', monospace;
-  color:#63b3ff;
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #00ff00;
+    margin-top: 40px;
 }
 
-/* MOBILE TAP TO PLAY OVERLAY */
-.tap-play-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.8);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:'Orbitron', sans-serif;
-  font-size:22px;
-  font-weight:bold;
-  color:#1e90ff;
-  text-align:center;
-  cursor:pointer;
-  z-index:5;
+/* EXTRA UI STYLES */
+.card {
+    border: 1px solid #00ff00;
+    padding: 10px;
+    margin-top: 10px;
+    background: rgba(0,0,0,0.4);
 }
 
-/* RESPONSIVE */
-@media (max-width: 480px){
-  .container{
-    padding: 25px 12px;
-  }
-  h1{
-    font-size: 28px;
-  }
-  .card{
-    font-size: 14px;
-  }
-  .link{
-    font-size: 14px;
-    padding: 12px;
-  }
-  .tap-play-overlay{
-    font-size:18px;
-    padding:20px;
-  }
+.hidden {
+    display: none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO -->
-<video autoplay muted loop playsinline>
-  <source src="background.mp4" type="video/mp4">
+<!-- VIDEO BACKGROUND -->
+<video autoplay muted loop id="bgVideo">
+    <source src="https://raw.githubusercontent.com/bekarakaranabutae-oss/MY-PORTFOLIO/main/background.mp4" type="video/mp4">
 </video>
+
 <div class="overlay"></div>
 
-<!-- AUDIO -->
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
+<!-- MUSIC -->
+<audio id="bgMusic" autoplay loop>
+    <source src="https://raw.githubusercontent.com/bekarakaranabutae-oss/MY-PORTFOLIO/main/music.mp3" type="audio/mpeg">
 </audio>
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
 
-<!-- MOBILE TAP TO PLAY -->
-<div id="tapOverlay" class="tap-play-overlay" style="display:none;">
-  TAP TO PLAY MUSIC 🔊
-</div>
+<canvas id="matrix"></canvas>
+
+<header>
+    <img src="https://raw.githubusercontent.com/bekarakaranabutae-oss/KEVIN-HOST-PREMIUM/main/profile.jpg" class="profile">
+    <h1>KEVIN TAAKE 🇰🇮</h1>
+    <p>⚠ GOD MODE SYSTEM ⚠</p>
+    <button onclick="toggleMusic()">🎧 Play / Pause Music</button>
+</header>
 
 <div class="container">
 
-  <div class="profile">
-    <img src="profile.jpg" alt="Kevin Taake">
-  </div>
+<!-- TERMINAL -->
+<div class="box">
+    <div class="panel-title">🧠 HACKER SCANNER</div>
 
-  <h1>KEVIN TAAKE 🇰🇮</h1>
-  <div class="tag"> WEBSITE DEVELOPER | CODE MASTER</div>
+    <form onsubmit="scanHacker(event)">
+        <input type="text" id="hackerInput" placeholder="Type: who is the hacker" required>
+        <button type="submit">SCAN</button>
+    </form>
 
-  <!-- COLLAPSIBLE DESCRIPTION CARD -->
-  <div class="card" id="descCard">
-    <div id="descHeader" style="cursor:pointer; font-size:16px;">
-      <strong>ABOUT ME ⬇️</strong>
+    <div id="terminal" class="log"></div>
+
+    <div id="hackerResult" class="card hidden">
+        <h2>⚠ TARGET IDENTIFIED ⚠</h2>
+        <p><strong>NAME:</strong> KEVIN TAAKE 🇰🇮</p>
+
+        <img src="https://raw.githubusercontent.com/bekarakaranabutae-oss/KEVIN-HOST-PREMIUM/main/profile.jpg"
+        style="width:120px; border-radius:50%; border:2px solid #00ff00;">
+
+        <iframe src="https://maps.google.com/maps?q=Kiribati&z=6&output=embed"></iframe>
     </div>
-    <div id="descContent" style="display:none; margin-top:15px; line-height:1.8;">
-      AGE: 20 YEARS OLD <br><br>
-      SCHOOL: USP 👨‍🎓<br><br>
-      PLACE: KIRIBATI 🇰🇮 <br><br>
-      FOUNDER OF :
-      <a href="https://bekarakaranabutae-oss.github.io/KEVIN-WORLD-HACK/"
-         target="_blank"
-         style="color:#1e90ff; font-weight:bold; text-decoration:none;">
-         KEVIN WORLD HACK
-      </a>
-    </div>
-  </div>
+</div>
 
-  <!-- SOCIAL LINKS -->
-  <a class="link" href="https://www.instagram.com/kevinbarai" target="_blank">📸 Instagram</a>
-  <a class="link" href="https://facebook.com/kevinbarai" target="_blank">👥 Facebook</a>
-  <a class="link" href="https://t.me/kevintaake" target="_blank">💬 Telegram</a>
-  <a class="link" href="https://github.com/bekarakaranabutae-oss" target="_blank">💻 GitHub</a>
-  <a class="link" href="https://youtube.com/@kevintaakemataio" target="_blank">▶️ YouTube</a>
-  <a class="link" href="https://bekarakaranabutae-oss.github.io/KEVIN-WORLD-HACK/" target="_blank">🌐 My Projects</a>
-  <a class="link" href="https://www.tiktok.com/@nabutae.com4?_r=1&_t=ZS-92x8Nkd3BZN" target="_blank">🎵 TikTok</a>
+<!-- STATUS -->
+<div class="box status">
+    <div id="coords">📍 Lat: -- Lon: --</div>
+    <div id="heading">🧭 Heading: --</div>
+    <div id="accuracy">📡 Accuracy: --</div>
+</div>
 
-  <div class="footer">
-    © 2026 Kevin Taake • Kiribati 🇰🇮
-  </div>
+<!-- CONTROL -->
+<div class="box">
+    <div class="panel-title">CONTROL PANEL</div>
+
+    <button onclick="startTracking()">Start Tracking</button>
+    <button onclick="stopTracking()">Stop Tracking</button>
+
+    <select onchange="changeRadar(this.value)">
+        <option value="radar">Radar</option>
+        <option value="rain">Rain</option>
+        <option value="satellite">Satellite</option>
+    </select>
+</div>
+
+<!-- RADAR -->
+<div class="box">
+    <div class="panel-title">📡 RADAR VIEW</div>
+    <iframe id="radarFrame"
+        src="https://embed.windy.com/embed2.html?lat=1.33&lon=173.00&zoom=5&overlay=radar">
+    </iframe>
+</div>
+
+<!-- MAP -->
+<div class="box">
+    <div class="panel-title">📍 LIVE LOCATION</div>
+    <iframe id="map"
+        src="https://maps.google.com/maps?q=Kiribati&z=6&output=embed">
+    </iframe>
+</div>
+
+<!-- EXTRA FEATURE SECTION -->
+<div class="box">
+    <div class="panel-title">⚙ SYSTEM INFO</div>
+    <div class="card">Browser: <span id="browser"></span></div>
+    <div class="card">Platform: <span id="platform"></span></div>
+    <div class="card">Language: <span id="lang"></span></div>
+</div>
+
+<!-- LOG -->
+<div class="box">
+    <div class="panel-title">📜 SYSTEM LOG</div>
+    <div id="systemLog" class="log"></div>
+    <button onclick="addLog()">Add Log</button>
+</div>
 
 </div>
 
+<footer>
+    GOD MODE SYSTEM © KEVIN TAAKE 🇰🇮
+</footer>
+
 <script>
+
+/* MUSIC */
 const music = document.getElementById("bgMusic");
-const musicBtn = document.querySelector(".music-btn");
-const tapOverlay = document.getElementById("tapOverlay");
-let playing = false;
-
-// Try autoplay on desktop
-window.addEventListener('load', () => {
-  music.play().then(() => {
-    playing = true;
-    musicBtn.textContent = "🔊";
-  }).catch(() => {
-    tapOverlay.style.display = "flex"; // show overlay if blocked
-  });
-});
-
-// Toggle music function
 function toggleMusic(){
-  if(!playing){
-    music.play();
-    playing = true;
-    musicBtn.textContent = "🔊";
-  }else{
-    music.pause();
-    playing = false;
-    musicBtn.textContent = "🎵";
-  }
+    music.paused ? music.play() : music.pause();
 }
 
-// Handle tap overlay for mobile
-tapOverlay.addEventListener('click', () => {
-  music.play();
-  playing = true;
-  musicBtn.textContent = "🔊";
-  tapOverlay.style.display = "none"; // remove overlay
-});
+/* SYSTEM INFO */
+document.getElementById("browser").innerText = navigator.userAgent;
+document.getElementById("platform").innerText = navigator.platform;
+document.getElementById("lang").innerText = navigator.language;
 
-// Collapsible description
-const descHeader = document.getElementById("descHeader");
-const descContent = document.getElementById("descContent");
+/* MATRIX */
+const c = document.getElementById("matrix");
+const ctx = c.getContext("2d");
+c.height = window.innerHeight;
+c.width = window.innerWidth;
 
-descHeader.addEventListener("click", () => {
-  if(descContent.style.display === "none"){
-    descContent.style.display = "block";
-  } else {
-    descContent.style.display = "none";
-  }
-});
+const letters = "01GODHACK";
+const font = 14;
+const columns = c.width/font;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function draw(){
+    ctx.fillStyle="rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,c.width,c.height);
+
+    ctx.fillStyle="#0f0";
+    ctx.font=font+"px monospace";
+
+    drops.forEach((y,i)=>{
+        let text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text,i*font,y*font);
+
+        if(y*font>c.height && Math.random()>0.975) drops[i]=0;
+        drops[i]++;
+    });
+}
+setInterval(draw,30);
+
+/* SCANNER */
+function scanHacker(e){
+    e.preventDefault();
+    const input = document.getElementById("hackerInput").value.toLowerCase();
+    const terminal = document.getElementById("terminal");
+    const result = document.getElementById("hackerResult");
+
+    terminal.innerHTML = "";
+    result.classList.add("hidden");
+
+    if(input === "who is the hacker"){
+        fakeLoading([
+            "Initializing system...",
+            "Bypassing firewall...",
+            "Accessing database...",
+            "Decrypting identity...",
+            "MATCH FOUND..."
+        ], () => {
+            result.classList.remove("hidden");
+        });
+    } else {
+        fakeLoading([
+            "Scanning...",
+            "No results found",
+            "ACCESS DENIED ❌"
+        ]);
+    }
+}
+
+/* LOADING */
+function fakeLoading(lines, callback){
+    const terminal = document.getElementById("terminal");
+    let i = 0;
+
+    function nextLine(){
+        if(i < lines.length){
+            let line = document.createElement("div");
+            terminal.appendChild(line);
+
+            let text = lines[i];
+            let j = 0;
+
+            let typing = setInterval(()=>{
+                line.innerHTML += text[j];
+                j++;
+
+                if(j >= text.length){
+                    clearInterval(typing);
+                    i++;
+                    setTimeout(nextLine, 400);
+                }
+            }, 25);
+
+        } else {
+            if(callback) callback();
+        }
+    }
+    nextLine();
+}
+
+/* RADAR */
+function changeRadar(type){
+    const radar = document.getElementById("radarFrame");
+
+    if(type === "rain"){
+        radar.src = "https://embed.windy.com/embed2.html?overlay=rain&lat=1.33&lon=173&zoom=5";
+    }
+    else if(type === "satellite"){
+        radar.src = "https://embed.windy.com/embed2.html?overlay=satellite&lat=1.33&lon=173&zoom=5";
+    }
+    else {
+        radar.src = "https://embed.windy.com/embed2.html?overlay=radar&lat=1.33&lon=173&zoom=5";
+    }
+}
+
+/* GEOLOCATION */
+let watchId;
+
+function startTracking(){
+    if(navigator.geolocation){
+        watchId = navigator.geolocation.watchPosition(updatePosition);
+    }
+}
+
+function stopTracking(){
+    navigator.geolocation.clearWatch(watchId);
+}
+
+function updatePosition(pos){
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+
+    document.getElementById("coords").innerText =
+        `📍 Lat: ${lat.toFixed(5)} Lon: ${lon.toFixed(5)}`;
+
+    document.getElementById("map").src =
+        `https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`;
+}
+
+/* LOG */
+function addLog(){
+    const log = document.getElementById("systemLog");
+    const entry = document.createElement("div");
+    entry.innerText = "LOG: " + new Date().toLocaleString();
+    log.appendChild(entry);
+}
+
 </script>
 
 </body>
