@@ -1280,7 +1280,7 @@ border:1px solid #6C63FF; box-shadow:0 10px 30px rgba(0,0,0,0.4);">
     });
   </script>
 </body>
-<!-- 🎧 MINI MUSIC WIDGET -->
+<!-- 🎧 MINI MUSIC PLAYER (3 SONGS) -->
 <div style="position:fixed; bottom:15px; right:15px; z-index:9999;
 background:rgba(17,24,39,0.9); backdrop-filter:blur(8px);
 padding:10px; border-radius:15px;
@@ -1292,20 +1292,59 @@ border:1px solid #6C63FF; box-shadow:0 5px 20px rgba(0,0,0,0.4);">
     style="width:40px; height:40px; border-radius:50%;
     border:2px solid #6C63FF; object-fit:cover;">
 
-  <!-- BUTTON -->
+  <!-- AUDIO -->
+  <audio id="bgMusic"></audio>
+
+  <!-- CONTROLS -->
   <button onclick="toggleMusic()" id="musicBtn"
     style="padding:6px 10px; border:none; border-radius:10px;
     background:#6C63FF; color:white; font-size:12px; cursor:pointer;">
     ▶
   </button>
 
-  <!-- NEXT -->
   <button onclick="nextSong()"
     style="padding:6px 8px; border:none; border-radius:8px;
     background:#1f2937; color:white; cursor:pointer;">
     ⏭
   </button>
-<audio id="bgMusic" loop autoplay muted></audio>
+
 </div>
+
+<script>
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicBtn");
+
+  // 🎵 SONG LIST
+  const songs = [
+    "music1.mp3",
+    "music2.mp3",
+    "music3.mp3"
+  ];
+
+  let currentSong = 0;
+
+  // load first song
+  music.src = songs[currentSong];
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      btn.innerHTML = "⏸";
+    } else {
+      music.pause();
+      btn.innerHTML = "▶";
+    }
+  }
+
+  function nextSong() {
+    currentSong = (currentSong + 1) % songs.length;
+    music.src = songs[currentSong];
+    music.play();
+    btn.innerHTML = "⏸";
+  }
+
+  // auto next song when finished
+  music.addEventListener("ended", nextSong);
+</script>
 </div>
 </html>
